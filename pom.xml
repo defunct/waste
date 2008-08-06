@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.agtrz</groupId>
     <artifactId>waste</artifactId>
-    <packaging>war</packaging>
-    <version>0.1</version>
+    <packaging>jar</packaging>
+    <version>0.9.0</version>
     <name>waste</name>
     <description>Formatted email.</description>
 
@@ -25,11 +25,6 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.14</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
         </dependency>
         <dependency>
             <groupId>javax.mail</groupId>
