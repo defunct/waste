@@ -1,24 +1,17 @@
 /* Copyright Alan Gutierrez 2006 */
 package com.agtrz.waste;
 
-import java.util.Properties;
 
 public class VerpMessageBuilder
 {
-    private final Properties properties;
+    private final SessionBuilder newSession;
     
     private final String mailbox;
     
-    private final String user;
-    
-    private final String password;
-    
-    public VerpMessageBuilder(Properties properties, String user, String password, String mailbox)
+    public VerpMessageBuilder(SessionBuilder newSession, String mailbox)
     {
-        this.properties = properties;
+        this.newSession = newSession;
         this.mailbox = mailbox;
-        this.user = user;
-        this.password = password;
     }
     
     public static String escape(String address)
@@ -49,7 +42,7 @@ public class VerpMessageBuilder
     
     public VerpMessage id(String id)
     {
-        return new VerpMessage(properties, user, password, mailbox + "-" + id);
+        return new VerpMessage(newSession, mailbox + "-" + id);
     }
 }
 

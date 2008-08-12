@@ -37,7 +37,7 @@ extends RuntimeException
     
     private static String message(Integer code, Object[] arguments)
     {
-        ResourceBundle bundle = ResourceBundle.getBundle("exceptions");
+        ResourceBundle bundle = ResourceBundle.getBundle("com.agtrz.waste.exceptions");
         return MessageFormat.format(bundle.getString(code.toString()), arguments);
     }
     

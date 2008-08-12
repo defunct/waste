@@ -1,8 +1,6 @@
 /* Copyright Alan Gutierrez 2006 */
 package com.agtrz.waste;
 
-import java.util.Properties;
-
 import javax.mail.MessagingException;
 import javax.mail.SendFailedException;
 import javax.mail.Session;
@@ -11,23 +9,16 @@ import javax.mail.internet.MimeMessage;
 
 public class VerpMessage
 {
-    private final Properties properties;
-    
     private final MimeMessage message;
+
+    private final SessionBuilder newSession;
     
     private final Session session;
     
-    private final String user;
-    
-    private final String password;
-    
-    public VerpMessage(Properties properties, String user, String password, String verp)
+    public VerpMessage(SessionBuilder newSession, String verp)
     {
-        this.user = user;
-        this.password = password;
-        this.properties = new Properties(properties);
-        this.properties.put("mail.smtp.from", verp);
-        this.session = Session.getInstance(this.properties);
+        this.newSession = newSession;
+        this.session = newSession.newSession();
         this.message = new MimeMessage(session);
     }
     
@@ -46,8 +37,8 @@ public class VerpMessage
         getMimeMessage().saveChanges();
         session.setDebug(true);
         Transport tr = session.getTransport("smtp");
-        String host = properties.getProperty("mail.smtp.host");
-        tr.connect(host, user, password);
+        String host = session.getProperty("smtp.mail.host");
+        tr.connect(host, newSession.getUser(), newSession.getPassword());
         try
         {
             tr.sendMessage(message, message.getAllRecipients());
