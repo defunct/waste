@@ -19,6 +19,7 @@ public class VerpMessage
     {
         this.newSession = newSession;
         this.session = newSession.newSession();
+        this.session.getProperties().put("mail.smtp.from", verp);
         this.message = new MimeMessage(session);
     }
     
