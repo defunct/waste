@@ -1,5 +1,5 @@
 /* Copyright Alan Gutierrez 2006 */
-package com.agtrz.waste;
+package com.goodworkalan.waste;
 
 import java.io.IOException;
 import java.io.StringWriter;

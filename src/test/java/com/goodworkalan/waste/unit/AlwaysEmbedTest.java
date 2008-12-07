@@ -1,11 +1,11 @@
 /* Copyright Alan Gutierrez 2006 */
-package com.agtrz.waste.unit;
+package com.goodworkalan.waste.unit;
 
 import static org.testng.Assert.assertTrue;
 
 import org.testng.annotations.Test;
 
-import com.agtrz.waste.AlwaysEmbed;
+import com.goodworkalan.waste.AlwaysEmbed;
 
 public class AlwaysEmbedTest
 {

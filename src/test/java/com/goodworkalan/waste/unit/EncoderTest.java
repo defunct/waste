@@ -1,11 +1,11 @@
 /* Copyright Alan Gutierrez 2006 */
-package com.agtrz.waste.unit;
+package com.goodworkalan.waste.unit;
 
 import static junit.framework.Assert.assertEquals;
 
 import org.testng.annotations.Test;
 
-import com.agtrz.waste.Encoder;
+import com.goodworkalan.waste.Encoder;
 
 public class EncoderTest
 {

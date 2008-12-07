@@ -1,11 +1,11 @@
 /* Copyright Alan Gutierrez 2006 */
-package com.agtrz.waste.unit;
+package com.goodworkalan.waste.unit;
 
 import static org.testng.Assert.assertEquals;
 
 import org.testng.annotations.Test;
 
-import com.agtrz.waste.WasteException;
+import com.goodworkalan.waste.WasteException;
 
 public class WasteExceptionTest
 {

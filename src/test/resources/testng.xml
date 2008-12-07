@@ -3,7 +3,7 @@
 <suite name="Waste Suite" verbose="1" >
     <test name="Unit">
         <packages>
-            <package name="com.agtrz.waste.unit" />
+            <package name="com.goodworkalan.waste.unit" />
         </packages>
     </test>
 </suite>
