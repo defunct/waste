@@ -7,29 +7,39 @@ import java.io.StringWriter;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
-public class FreemarkerGenerator
-implements TextGenerator
-{
+/**
+ * Generate message text using Freemarker.
+ * 
+ * @author Alan Gutierrez
+ */
+public class FreemarkerGenerator implements TextGenerator {
+    /** The Freemarker template. */
     private final Template template;
-    
-    public FreemarkerGenerator(Template template)
-    {
+
+    /**
+     * Create a Freemarker generator with the given Freemarker template.
+     * 
+     * @param template
+     *            The Freemarker template.
+     */
+    public FreemarkerGenerator(Template template) {
         this.template = template;
     }
 
-    public String generate(Object model)
-    {
+    /**
+     * Generate message text using the given data model.
+     * 
+     * @param model
+     *            The data model.
+     * @return The generated message text.
+     */
+    public String generate(Object model) {
         StringWriter writer = new StringWriter();
-        try
-        {
+        try {
             template.process(model, writer);
-        }
-        catch (TemplateException e)
-        {
+        } catch (TemplateException e) {
             throw new WasteException(e);
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             throw new WasteException(e);
         }
         return writer.toString();

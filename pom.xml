@@ -6,7 +6,7 @@
     <groupId>com.goodworkalan</groupId>
     <artifactId>waste</artifactId>
     <packaging>jar</packaging>
-    <version>0.7.X</version>
+    <version>0.7</version>
     <name>waste</name>
     <description>Formatted email.</description>
 
