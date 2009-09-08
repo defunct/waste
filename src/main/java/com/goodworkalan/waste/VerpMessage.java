@@ -7,45 +7,37 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.MimeMessage;
 
-public class VerpMessage
-{
+public class VerpMessage {
     private final MimeMessage message;
 
     private final SessionBuilder newSession;
-    
+
     private final Session session;
-    
-    public VerpMessage(SessionBuilder newSession, String verp)
-    {
+
+    public VerpMessage(SessionBuilder newSession, String verp) {
         this.newSession = newSession;
         this.session = newSession.newSession();
         this.session.getProperties().put("mail.smtp.from", verp);
         this.message = new MimeMessage(session);
     }
-    
-    public MimeMessage getMimeMessage()
-    {
+
+    public MimeMessage getMimeMessage() {
         return message;
     }
-    
-    public Session getSession()
-    {
+
+    public Session getSession() {
         return session;
     }
-    
-    public void send() throws MessagingException
-    {
+
+    public void send() throws MessagingException {
         getMimeMessage().saveChanges();
         session.setDebug(true);
-        Transport tr = session.getTransport("smtp");
-        String host = session.getProperty("smtp.mail.host");
+        Transport tr = session.getTransport(newSession.getTransport());
+        String host = session.getProperty("mail.smtp.host");
         tr.connect(host, newSession.getUser(), newSession.getPassword());
-        try
-        {
+        try {
             tr.sendMessage(message, message.getAllRecipients());
-        }
-        catch (SendFailedException e)
-        {
+        } catch (SendFailedException e) {
             e.printStackTrace();
         }
         tr.close();
