@@ -1,3 +1,6 @@
 target
-changes.txt
 test-output
+temp-testng-customsuite.xml
+changes.txt
+.project
+.classpath
